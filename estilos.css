@@ -1,0 +1,93 @@
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.grid{
+    margin: 0 auto;
+    width: 500px;
+    
+    
+}
+body{
+    text-align: center;
+    background: #8be4ff;
+    
+}
+
+.tarjeta{
+    margin-top:  20px;
+
+}
+
+.btn{
+    margin: 15px 0px 15px 0px;
+}
+
+.login{
+    width: 150px;
+}
+
+.tabla{
+    
+        -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    background-color:#fff
+    
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    margin-top: 20px;
+    background: #fff;
+}
+
+.logo{
+    height: auto;
+    width: 100%;
+}
+
+/* ------------------------------ ESTILOS INDEX CLIENTE ----------------------------------*/
+
+.envio {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+
+.nuevo{
+    margin-top: 25px;
+}
+
+.icono{
+    margin-top: 10px;
+}
+
+.miniform{
+    width: 250px;
+}
+
+.envioicono{
+    margin-right: 5px;
+}
+
+.botonenvio{
+   text-align: center;
+}
+
+.botonenvio button{
+   width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
