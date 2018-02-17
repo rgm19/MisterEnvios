@@ -29,7 +29,7 @@
                           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Nuevo Envio
                           </button>
-                          
+                          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                           <div class="dropdown-menu miniform">
                                 <div class="col-12 icono">
                                     <i class="fas fa-user envioicono"></i>
@@ -48,12 +48,31 @@
                                     <input type="text" name="contacto" placeholder="Contacto">
                                 </div>                                
                                 <div class="col-12 botonenvio justify-content-center">
-                                    <button type="button" class="btn btn-primary">Enviar</button>
-                                </div>                                                                
+                                    <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+                                </div>
                           </div>
+                        </form>
                     </div>
                 </div>
             </div>
+            <?php 
+                    if(isset($_POST['submit'])){
+                            $ficherow=fopen("envios.txt",'a');          
+                            fwrite($ficherow, $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". PHP_EOL);
+                            fwrite($ficherow, "\n");                        
+                            fclose($ficherow);
+                            //die;
+                    }
+            
+                $file="envios.txt";
+                $ficheror=file_get_contents($file);
+                $content=explode($ficheror,"\n");
+                for($i=0;$i<count($content);$i++){
+                    echo $content[$i];
+                    
+                }
+                
+          ?>  
         </div>
     </div>
 </body>
