@@ -58,18 +58,36 @@
             <?php 
                     if(isset($_POST['submit'])){
                             $ficherow=fopen("envios.txt",'a');          
-                            fwrite($ficherow, $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". PHP_EOL);
-                            fwrite($ficherow, "\n");                        
+                            fwrite($ficherow, $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". PHP_EOL);                       
                             fclose($ficherow);
                             //die;
                     }
             
-                $file="envios.txt";
-                $ficheror=file_get_contents($file);
-                $content=explode($ficheror,"\n");
-                for($i=0;$i<count($content);$i++){
-                    echo $content[$i];
+                $file=file("envios.txt");
+                for($i=0;$i<count($file);$i++){
+                    $aux=explode("\t",$file[$i]); 
+
+                     echo "_____________________________<br>";
                     
+                    echo '<div class="row">';
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[0].'</p>';
+                                echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[1].'</p>';
+                            echo '</div>';
+                    
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[2].'</p>';
+                                echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[3].'</p>';
+                            echo '</div>';
+                    
+                    
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Estado&nbsp;</strong></p>';
+                                echo'<p>'.$aux[4].'</p>';
+                            echo '</div>';                         
+                    echo '</div>';    
+                       
+                   
                 }
                 
           ?>  
