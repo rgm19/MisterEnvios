@@ -5,7 +5,7 @@
 }
 .grid{
     margin: 0 auto;
-    min-width: 550px;  
+    width: 600px;  
 }
 body{
     text-align: center;
