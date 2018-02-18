@@ -39,7 +39,7 @@
                     if($_REQUEST["nombre"]=="repartidor" && $_REQUEST["clave"]=="repartidor"){
                     
                         $_SESSION["autentificado"]="SI";
-                        header("location: ejercicio1.php");
+                        header("location: indexRepartidor.php");
                     }
                 
                     if($_REQUEST["nombre"]=="admin" && $_REQUEST["clave"]=="admin"){

@@ -1,1 +1,2 @@
-Ruben	Angel	Murgi	65479321	En Espera
+Ruben	Angel	Murgi	65479321	En reparto
+Angel	Ruben	Murgi	65479321	Entregado
