@@ -28,15 +28,61 @@
             <?php    
                 
                 $file=file("envios.txt");
-                for($i=0;$i<count($file);$i++){
-                    $aux=explode("\t",$file[$i]);
-                    echo "_____________________________<br>";
+                foreach($file as $linea){
+                    $aux=explode("\t",$linea);                  
+                    
+                    if((rtrim($aux[4])=='En reparto')){
+                    echo "_____________________________<br>";    
+                    echo '<div class="row align-items-center reparto">';
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[0].'</p>';
+                                echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[1].'</p>';
+                            echo '</div>';
+                    
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[2].'</p>';
+                                echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[3].'</p>';
+                            echo '</div>';
                     
                     
-                    // fallo con el if
-                    if((settype($aux[4],"string")=='En reparto') || settype($aux[4],"string")=='Entregado'){
-                     
+                            echo '<div class=" col column align-items-center">';            
+                                echo'<p><strong>Estado&nbsp;</strong>'.$aux[4].'</p>';
+                                echo'<div class="row justify-content-between">';
+                                    echo'<button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-truck"></i></button>';
+                                    echo'<button type="submit" name="submit" class="btn btn-success"><i class="fas fa-handshake"></i></button>';
+                            echo'</div>';
+                            echo '</div>';
+                    echo '</div>';
+                        
+                    }
                     
+                    if((rtrim($aux[4])=='Entregado')){
+                    echo "_____________________________<br>";    
+                    echo '<div class="row align-items-center entregado">';
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[0].'</p>';
+                                echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[1].'</p>';
+                            echo '</div>';
+                    
+                            echo '<div class=" col column">';            
+                                echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[2].'</p>';
+                                echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[3].'</p>';
+                            echo '</div>';
+                    
+                    
+                            echo '<div class=" col column align-items-center">';            
+                                echo'<p><strong>Estado&nbsp;</strong>'.$aux[4].'</p>';
+                                echo'<div class="row justify-content-between">';
+                                    echo'<button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-truck"></i></button>';
+                                    echo'<button type="submit" name="submit" class="btn btn-success"><i class="fas fa-handshake"></i></button>';
+                            echo'</div>';
+                            echo '</div>';
+                    echo '</div>';
+                        
+                    }
+                    
+                    if((rtrim($aux[4])=='En Espera')){
+                    echo "_____________________________<br>";    
                     echo '<div class="row align-items-center">';
                             echo '<div class=" col column">';            
                                 echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[0].'</p>';
@@ -58,11 +104,8 @@
                             echo '</div>';
                     echo '</div>';
                         
-                    }         
+                    }                                      
                 }
-                    
-                
-                
             ?>
         </div>
     </div>

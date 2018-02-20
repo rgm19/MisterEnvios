@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,39 +29,29 @@
 
                     if($_REQUEST["nombre"]=="cliente1" && $_REQUEST["clave"]=="cliente1"){
                         
-                        $_SESSION["autentificado"]="SI";
+                        $_SESSION["usuario"]="cliente1";
                         header("location: indexCliente.php");
-                    }
-                
-                    if($_REQUEST["nombre"]=="cliente2" && $_REQUEST["clave"]=="cliente2"){
                         
-                        $_SESSION["autentificado"]="SI";
+                    } else if($_REQUEST["nombre"]=="cliente2" && $_REQUEST["clave"]=="cliente2"){
+                        
+                        $_SESSION["usuario"]="cliente2";
                         header("location: indexCliente.php");
-                    }
-                
-                    if($_REQUEST["nombre"]=="repartidor" && $_REQUEST["clave"]=="repartidor"){
-                    
-                        $_SESSION["autentificado"]="SI";
+                        
+                    } else if($_REQUEST["nombre"]=="repartidor" && $_REQUEST["clave"]=="repartidor"){
+                        
+                        $_SESSION["usuario"]="repartidor";               
                         header("location: indexRepartidor.php");
-                    }
-                
-                    if($_REQUEST["nombre"]=="admin" && $_REQUEST["clave"]=="admin"){
                         
-                        $_SESSION["autentificado"]="SI";
+                    } else if($_REQUEST["nombre"]=="admin" && $_REQUEST["clave"]=="admin"){
+                        
+                        $_SESSION["usuario"]="admin";
                         header("location: ejercicio1.php");
+                    } else {                
+                        header("Location: login.php?errorusuario=1");
                     }
-                
-                 
             }
-            /*
-                if(!isset($_REQUEST["errorusuario"])){
-                     header("Location: login.php?errorusuario=1");
-                }else{
-                    header("Location: login.php?errorusuario=1");
-                    header("Location: login.php");
-                }
-            */
-    }
+                    
+        }
         
         
     ?>
