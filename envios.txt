@@ -1,3 +1,4 @@
-0	tt	tt	tt	ttt	En Espera	cliente1
-1	tt	tt	tt	ttt	En Espera	cliente1
-2	ff	ff	ff	ff	En Espera	cliente1
+0	ff	ff	ff	ff	En Espera	cliente1
+1	ff	ff	ff	ff	Entregado	cliente1
+2	ff	ff	ff	ff	En Reparto	cliente1
+3	ff	ff	ff	ff	En Espera	cliente1
