@@ -26,7 +26,7 @@
                 <div class="col-4">
                 <br><br><br><br>
                 <?php
-                        echo '<h3 class="envios">'.$_SESSION["usuario"].'</h3>';
+                    echo '<h3 class="envios">'.$_SESSION["usuario"].'</h3>';
                 ?>
                       
                     <h3 class="envio">Envios</h3>
@@ -66,10 +66,23 @@
             </div>
             <?php 
                     if(isset($_POST['submit'])){
-                            $ficherow=fopen("envios.txt",'a');          
-                            fwrite($ficherow, $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". "\t ". $_SESSION["usuario"] . PHP_EOL);                       
-                            fclose($ficherow);
-                            //die;
+                        $id="";    
+                        $fread=file("envios.txt");
+                        for($i=0;$i<count($fread);$i++){
+                            $array=explode("\t",$fread[$i]);
+                            $id=$array[0];
+                            
+                        }
+                        if($id==""){
+                            $id=0;
+                        }else{
+                            $id++;
+                        }
+                        
+                        $ficherow=fopen("envios.txt",'a');          
+                        fwrite($ficherow, $id . "\t" . $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". "\t ". $_SESSION["usuario"] . PHP_EOL);                       
+                        fclose($ficherow);
+                            
                     }
             
                 $file=file("envios.txt");
@@ -80,19 +93,19 @@
                     
                     echo '<div class="row">';
                             echo '<div class=" col column">';            
-                                echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[0].'</p>';
-                                echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[1].'</p>';
+                                echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[1].'</p>';
+                                echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[2].'</p>';
                             echo '</div>';
                     
                             echo '<div class=" col column">';            
-                                echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[2].'</p>';
-                                echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[3].'</p>';
+                                echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[3].'</p>';
+                                echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[4].'</p>';
                             echo '</div>';
                     
                     
                             echo '<div class=" col column">';            
                                 echo'<p><strong>Estado&nbsp;</strong></p>';
-                                echo'<p>'.$aux[4].'</p>';
+                                echo'<p>'.$aux[5].'</p>';
                             echo '</div>';                         
                     echo '</div>';    
                        
