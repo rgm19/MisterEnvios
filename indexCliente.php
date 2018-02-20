@@ -80,7 +80,7 @@
                         }
                         
                         $ficherow=fopen("envios.txt",'a');          
-                        fwrite($ficherow, $id . "\t" . $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". "\t ". $_SESSION["usuario"] . PHP_EOL);                       
+                        fwrite($ficherow, $id . "\t" . $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". "\t". $_SESSION["usuario"] . PHP_EOL);                       
                         fclose($ficherow);
                             
                     }
@@ -89,26 +89,28 @@
                 for($i=0;$i<count($file);$i++){
                     $aux=explode("\t",$file[$i]); 
 
-                     echo "_____________________________<br>";
-                    
-                    echo '<div class="row">';
-                            echo '<div class=" col column">';            
-                                echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[1].'</p>';
-                                echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[2].'</p>';
-                            echo '</div>';
-                    
-                            echo '<div class=" col column">';            
-                                echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[3].'</p>';
-                                echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[4].'</p>';
-                            echo '</div>';
-                    
-                    
-                            echo '<div class=" col column">';            
-                                echo'<p><strong>Estado&nbsp;</strong></p>';
-                                echo'<p>'.$aux[5].'</p>';
-                            echo '</div>';                         
-                    echo '</div>';    
-                       
+                    if(rtrim($_SESSION["usuario"])==rtrim($aux[6])){
+                         
+                        echo "_____________________________<br>";
+
+                        echo '<div class="row">';
+                                echo '<div class=" col column">';            
+                                    echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[1].'</p>';
+                                    echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[2].'</p>';
+                                echo '</div>';
+
+                                echo '<div class=" col column">';            
+                                    echo'<p><strong>Direccion:&nbsp;</strong>'.$aux[3].'</p>';
+                                    echo'<p><strong>Contacto:&nbsp;</strong>'.$aux[4].'</p>';
+                                echo '</div>';
+
+
+                                echo '<div class=" col column">';            
+                                    echo'<p><strong>Estado&nbsp;</strong></p>';
+                                    echo'<p>'.$aux[5].'</p>';
+                                echo '</div>';                         
+                        echo '</div>';    
+                    }
                    
                 }
                 
