@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +24,13 @@
                 </div>
                 
                 <div class="col-4">
+                <br><br><br><br>
+                <?php
+                        echo '<h3 class="envios">'.$_SESSION["usuario"].'</h3>';
+                ?>
+                      
                     <h3 class="envio">Envios</h3>
+
                 </div>
                 
                 <div class="col-4">
@@ -58,7 +67,7 @@
             <?php 
                     if(isset($_POST['submit'])){
                             $ficherow=fopen("envios.txt",'a');          
-                            fwrite($ficherow, $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". PHP_EOL);                       
+                            fwrite($ficherow, $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". "\t ". $_SESSION["usuario"] . PHP_EOL);                       
                             fclose($ficherow);
                             //die;
                     }
