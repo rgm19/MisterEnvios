@@ -1,6 +1,7 @@
 <?php
 session_start();
-setcookie("logueado",$_SESSION["usuario"], time()+3600);
+$_SESSION["usuario"]="";
+setcookie("logueo",$_SESSION["usuario"], time()+3600);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +51,8 @@ setcookie("logueado",$_SESSION["usuario"], time()+3600);
                     } else {                
                         header("Location: login.php?errorusuario=1");
                     }
-            }           
+            }
+            
         }
         
         
@@ -67,7 +69,7 @@ setcookie("logueado",$_SESSION["usuario"], time()+3600);
                 </tr>
                 <tr>
                     <td><i class="fas fa-user"></i>
-                     &nbsp;&nbsp;<input class="login" type="text" name="nombre" autocomplete="On" placeholder="username" value="<?php if($_COOKIE['logueado']){echo $_COOKIE['logueado'];}?>"></td>
+                     &nbsp;&nbsp;<input class="login" type="text" name="nombre" autocomplete="On" placeholder="username" value="<?php if(isset($_COOKIE['logueo'])){echo $_COOKIE['logueo'];}?>"></td>
                 </tr>
                 <tr>
                     <td><i class="fas fa-key"></i>

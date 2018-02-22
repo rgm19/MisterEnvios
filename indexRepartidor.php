@@ -31,8 +31,51 @@
                     $boton = $_POST['rp'];
                     $num = array_keys( $boton );
                     $num = $num[0];
-                    echo $num; 
+                    
+                    $rpfile=file("envios.txt");
+                    $rescribir=fopen("envios.txt", "w+");
+                    
+                    foreach($rpfile as $linea){
+                        $aux=explode("\t",$linea); 
+                        
+                        if($num==$aux[0]){
+            
+                            $aux[5]="En Reparto";
+                            $pegado=implode("\t",$aux);
+                            fwrite($rescribir, $pegado);
+                        }else{
+                            fwrite($rescribir, $linea);
+                        }
+                    }
+                    
+                    fclose($rescribir);
                 }
+            
+            
+                if(isset($_POST['en'])){
+                    $boton = $_POST['en'];
+                    $num = array_keys( $boton );
+                    $num = $num[0];
+                    
+                    $rpfile=file("envios.txt");
+                    $rescribir=fopen("envios.txt", "w+");
+                    
+                    foreach($rpfile as $linea){
+                        $aux=explode("\t",$linea); 
+                        
+                        if($num==$aux[0]){
+            
+                            $aux[5]="Entregado";
+                            $pegado=implode("\t",$aux);
+                            fwrite($rescribir, $pegado);
+                        }else{
+                            fwrite($rescribir, $linea);
+                        }
+                    }
+                    
+                    fclose($rescribir);
+                }            
+            
 
             
             
