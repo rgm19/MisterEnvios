@@ -13,8 +13,9 @@
 </head>
 <body>  
     <div class="container grid">
+       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
         <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center tarjeta tabla column">
-           
+          
             <div class="row">
                 <div class="col-4">
                     <img src="imagenes/logo.png" class="logo">
@@ -26,6 +27,15 @@
                 
             </div>
             <?php    
+                if(isset($_POST['rp'])){
+                    $boton = $_POST['rp'];
+                    $num = array_keys( $boton );
+                    $num = $num[0];
+                    echo $num; 
+                }
+
+            
+            
                 
                 $file=file("envios.txt");
                 foreach($file as $linea){
@@ -55,14 +65,15 @@
                                 echo '<div class=" col column align-items-center">';            
                                     echo'<p><strong>Estado&nbsp;</strong>'.$aux[5].'</p>';
                                     echo'<div class="row justify-content-between">';
-                                        echo'<button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-truck"></i></button>';
-                                        echo'<button type="submit" name="submit" class="btn btn-success"><i class="fas fa-handshake"></i></button>';
+                                        echo'<button type="submit" name="rp['. $aux[0].']" class="btn btn-warning"><i class="fas fa-truck"></i></button>';
+                                        echo'<button type="submit" name="en['. $aux[0].']" class="btn btn-success"><i class="fas fa-handshake"></i></button>';
                                     echo'</div>';
                                 echo '</div>';                        
                         echo '</div>';                                       
                 }
             ?>
         </div>
+        </form>
     </div>
 </body>
 </html>

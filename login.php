@@ -1,5 +1,6 @@
 <?php
 session_start();
+setcookie("logueado",$_SESSION["usuario"], time()+3600);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,15 +50,11 @@ session_start();
                     } else {                
                         header("Location: login.php?errorusuario=1");
                     }
-            }
-            
-            setcookie("logueado",$_SESSION["usuario"], time()+3600);
-                    
+            }           
         }
         
         
-    ?>
-    
+    ?> 
     <div class="container grid">
         <div class="col-sm-7 col-md-9 col-lg-12 d-flex justify-content-center tarjeta">
            <form action="login.php" METHOD="post">

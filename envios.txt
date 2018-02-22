@@ -2,3 +2,4 @@
 1	ff	ff	ff	ff	Entregado	cliente1
 2	ff	ff	ff	ff	En Reparto	cliente1
 3	ff	ff	ff	ff	En Espera	cliente1
+4	aa	aa	aa	aa	Entregado	cliente1
