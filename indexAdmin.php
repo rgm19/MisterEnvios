@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index Repartidor - Mister Envios</title>
+    <title>Index Admin - Mister Envios</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -22,7 +22,7 @@
                 </div>
                 
                 <div class="col-7">
-                    <h3 class="envio">Listado de Reparto</h3>
+                    <h3 class="envio">Panel Administrador de lista de Pedidos</h3>
                 </div>
                 
             </div>
@@ -74,7 +74,28 @@
                     }
                     
                     fclose($rescribir);
-                }            
+                }
+            
+                if(isset($_POST['de'])){
+                    $boton = $_POST['de'];
+                    $num = array_keys( $boton );
+                    $num = $num[0];
+                    
+                    $rpfile=file("envios.txt");
+                    $rescribir=fopen("envios.txt", "w+");
+                    
+                    foreach($rpfile as $linea){
+                        $aux=explode("\t",$linea); 
+                        
+                        if($num==$aux[0]){
+                            fwrite($rescribir, "");
+                        }else{
+                            fwrite($rescribir, $linea);
+                        }
+                    }
+                    
+                    fclose($rescribir);
+                }  
             
 
             
@@ -110,6 +131,7 @@
                                     echo'<div class="row justify-content-between">';
                                         echo'<button type="submit" name="rp['. $aux[0].']" class="btn btn-warning"><i class="fas fa-truck"></i></button>';
                                         echo'<button type="submit" name="en['. $aux[0].']" class="btn btn-success"><i class="fas fa-handshake"></i></button>';
+                                        echo '<button type="submit" name="de['.$aux[0].']" class="btn btn-danger"><i class="fas fa-trash"></i></button>';
                                     echo'</div>';
                                 echo '</div>';                        
                         echo '</div>';                                       

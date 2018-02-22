@@ -1,7 +1,0 @@
-0	aa	aa	aa	aa	Entregado	cliente1
-1	ss	ss	ss	ss	En Reparto	cliente1
-2	ss	ss	ss	ss	Entregado	cliente1
-3	ss	ss	ss	ss	En Reparto	cliente1
-4	ss	ss	ss	ss	En Reparto	cliente1
-5	ss	ss	ss	ss	Entregado	cliente1
-6	ss	ss	ss	ss	Entregado	cliente1
