@@ -38,7 +38,7 @@
                           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Nuevo Envio
                           </button>
-                          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
                           <div class="dropdown-menu miniform">
                                 <div class="col-12 icono">
                                     <i class="fas fa-user envioicono"></i>
@@ -55,8 +55,12 @@
                                 <div class="col-12 icono ">
                                     <i class="fas fa-phone envioicono"></i>
                                     <input type="text" name="contacto" placeholder="Contacto">
-                                </div>                                
-                                <div class="col-12 botonenvio justify-content-center">
+                                </div>
+                                <div class="col-12 icono ">
+                                    <i class="fas fa-image envioicono"> Imagen del envio</i>
+                                    <input type="file" name="imagen" placeholder="Contacto">
+                                </div>                               
+                                <div class="col-12 botonenvio justify-content-center" >
                                     <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
                                 </div>
                           </div>
@@ -82,6 +86,21 @@
                         $ficherow=fopen("envios.txt",'a');          
                         fwrite($ficherow, $id . "\t" . $_POST['remitente'] . "\t" . $_POST['destinatario'] . "\t" . $_POST['direccion'] . "\t" . $_POST['contacto'] . "\t" . "En Espera". "\t". $_SESSION["usuario"] . PHP_EOL);                       
                         fclose($ficherow);
+                        
+                        if(is_uploaded_file($_FILES['imagen']['tmp_name'])){
+                            $nombreDirectorio="imagenes/";
+                            $nombreFichero=$id."-imagen.png";
+                            $completo=$nombreDirectorio.$nombreFichero;
+                            
+                            if(is_dir($nombreDirectorio)){  
+                                move_uploaded_file($_FILES['imagen']['tmp_name'], $completo);
+                            }else{
+                                echo "Directorio no valido";
+                            }
+                            
+                        }else{
+                            print('No se ha podido subir el fichero');
+                        }
                             
                     }
             
@@ -100,6 +119,11 @@
                         echo "_____________________________<br>";
 
                         echo '<div class="row '.$clase.'">';
+                        
+                                echo '<div class=" col column">';            
+                                    echo'<img class="pic" src="imagenes/'.$aux[0].'-imagen.png" width="100%">';
+                                echo '</div>';
+                        
                                 echo '<div class=" col column">';            
                                     echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[1].'</p>';
                                     echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[2].'</p>';

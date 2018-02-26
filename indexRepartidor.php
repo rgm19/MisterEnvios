@@ -94,6 +94,11 @@
                         echo "_____________________________<br>";
 
                         echo '<div class="row '.$clase.'">';
+                    
+                                echo '<div class=" col column">';            
+                                    echo'<img class="pic" src="imagenes/'.$aux[0].'-imagen.png" width="100%">';
+                                echo '</div>';
+                    
                                 echo '<div class=" col column">';            
                                     echo'<p><strong>Remitente:&nbsp;</strong>'.$aux[1].'</p>';
                                     echo'<p><strong>Destinatario:&nbsp;</strong>'.$aux[2].'</p>';

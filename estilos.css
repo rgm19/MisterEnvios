@@ -87,6 +87,10 @@ body{
     border: 4px solid #FFF;
 }
 
+.pic{
+    width: 100% !important; 
+}
+
 /* ------------------------------ ESTILOS INDEX Repartidor ----------------------------------*/
 
 .reparto{
