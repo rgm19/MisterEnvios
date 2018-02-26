@@ -33,7 +33,18 @@
 
                 </div>
                 
-                <div class="col-4">
+                
+                
+                
+                <div class="col-4 colum">
+                    
+                        
+                
+                    <button type="submit" name="exit0" class="btn btn-primary">
+                            <i class="fas fa-sign-out-alt"> Log Out</i>
+                    </button>   
+                 
+                        
                      <div class="btn-group nuevo">
                           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Nuevo Envio
@@ -68,7 +79,13 @@
                     </div>
                 </div>
             </div>
-            <?php 
+            <?php
+            
+                if(isset($_POST['exit0'])){
+                     header("location: login.php");
+                }
+            
+            
                     if(isset($_POST['submit'])){
                         $id="";    
                         $fread=file("envios.txt");

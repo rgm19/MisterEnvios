@@ -1,0 +1,3 @@
+1	Ruben	Angel	NOTA 8	78964132	Entregado	cliente1
+3	HOLA	ADIOS	CONVERSACION	654789312	En Espera	cliente2
+4	ADIOS	HOLA	PERRRITO	78965412	En Reparto	cliente2

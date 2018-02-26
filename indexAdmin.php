@@ -17,16 +17,32 @@
         <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center tarjeta tabla column">
           
             <div class="row">
-                <div class="col-4">
+                <div class="col-5">
                     <img src="imagenes/logo.png" class="logo">
                 </div>
                 
-                <div class="col-7">
-                    <h3 class="envio">Panel Administrador de lista de Pedidos</h3>
+                <div class="col-4 row">
+                    <h4 class="envio">Panel Administrador de lista de Pedidos</h4>
+                </div>
+                
+                <div class="col-3">
+                    <div class="col-3">
+                        <button type="submit" name="exit" class="btn btn-primary">
+                                <i class="fas fa-sign-out-alt"> Log Out</i>
+                        </button>
+                    </div>    
                 </div>
                 
             </div>
-            <?php    
+            <?php
+            
+                if(isset($_POST['exit'])){
+                     header("location: login.php");
+                }
+            
+            
+            
+            
                 if(isset($_POST['rp'])){
                     $boton = $_POST['rp'];
                     $num = array_keys( $boton );
